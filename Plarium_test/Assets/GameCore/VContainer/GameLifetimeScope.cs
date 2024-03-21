@@ -1,12 +1,12 @@
 using Plarium.Assets.GameCore.ScriptableObjects;
-using GameCore;
 using GameCore.Json;
-using GameCore.ScriptableObjects;
-using GameCore.ServerComs;
 using Plarium.GameCore.UI;
 using UnityEngine;
 using VContainer.Unity;
 using Plarium.Assets.GameCore.Events;
+using Plarium.Assets.GameCore;
+using Plarium.Assets.PlayerInput;
+using Plarium.GameCore.ScriptableObjects;
 
 namespace VContainer
 {
@@ -20,13 +20,11 @@ namespace VContainer
             builder.RegisterInstance<IAssetRefs, AssetRefs>(_assetRefs);
             builder.RegisterInstance<IKeywords, Keywords>(_keywords);
 
-            builder.RegisterEntryPoint<GameDirector>();
-
+            builder.RegisterEntryPoint<GameDirector>(Lifetime.Singleton);
             builder.Register<EventBus>(Lifetime.Singleton);
             builder.Register<JsonSerialization>(Lifetime.Singleton).AsImplementedInterfaces();
-            builder.Register<UWebRequest>(Lifetime.Singleton).AsImplementedInterfaces();
             builder.Register<UIManager>(Lifetime.Scoped).AsImplementedInterfaces();
-            //builder.Register<InfoBtn>(Lifetime.Scoped);
+            builder.Register<InputProcessing>(Lifetime.Scoped).AsImplementedInterfaces();            
         }
     }
 }

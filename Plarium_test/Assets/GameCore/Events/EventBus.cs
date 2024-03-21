@@ -5,7 +5,7 @@ namespace Plarium.Assets.GameCore.Events
 {
     public enum GameplayEvent
     {
-        GameStart, GameEnd, Error
+        /*GameStart, GameEnd,*/ NewPlayerInput/*, ApplicationQuit*/
     }
 
     public class EventBus
@@ -14,28 +14,26 @@ namespace Plarium.Assets.GameCore.Events
 
         public void Subscribe(GameplayEvent eventType, Action<BaseEventParams> handler)
         {
-            var handlerList = _subscription[eventType];
-            if (handlerList == null)
-            {
-                handlerList = new List<Action<BaseEventParams>>();
-                _subscription.Add(eventType, handlerList);
-            }
+            if (_subscription.ContainsKey(eventType) == false)
+                _subscription.Add(eventType, new List<Action<BaseEventParams>>());
 
+            var handlerList = _subscription[eventType];
             if (handlerList.Contains(handler) == false)
                 handlerList.Add(handler);
         }
 
         public void Unsubscribe(GameplayEvent eventType, Action<BaseEventParams> handler)
         {
-            _subscription[eventType]?.Remove(handler);
+            if (_subscription.ContainsKey(eventType))
+                _subscription[eventType]?.Remove(handler);
         }
 
         public void Publish(GameplayEvent eventType, BaseEventParams eventParams)
         {
-            var handlerList = _subscription[eventType];
-            if (handlerList == null)
+            if (_subscription.ContainsKey(eventType) == false)
                 return;
 
+            var handlerList = _subscription[eventType];
             foreach (var handler in handlerList)
                 handler?.Invoke(eventParams);
         }

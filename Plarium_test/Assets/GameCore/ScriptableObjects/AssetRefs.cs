@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
-namespace GameCore.ScriptableObjects
+namespace Plarium.GameCore.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "AssetRefs", menuName = "Scriptable Objects/Asset References")]
     public class AssetRefs : ScriptableObject, IAssetRefs
     {
-        public AssetRefs()
-        {
+        [SerializeField] private GameObject _circle, _triangle, _square;
 
-        }
+        public GameObject CirclePrefab => _circle;
+        public GameObject TrianglePrefab => _triangle;
+        public GameObject SquarePrefab => _square;
     }
 }

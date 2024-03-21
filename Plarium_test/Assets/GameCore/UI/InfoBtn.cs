@@ -29,6 +29,8 @@ namespace Plarium.GameCore.UI
             else
             {
                 _textBackground.SetActive(true);
+
+                //update the latest keywords every time the info panel is shown
                 _commandsText.text = $"Commands: \n{string.Join(", ", _keywordsRef.Commands)}";
                 _shapesText.text = $"Shapes: \n{string.Join(", ", _keywordsRef.Shapes)}";
                 _colorsText.text = $"Colors: \n{string.Join(", ", _keywordsRef.Colors)}";
