@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Plarium.GameCore.ScriptableObjects
+namespace Plarium.Assets.GameCore.ScriptableObjects
 {
     [CreateAssetMenu(fileName = "AssetRefs", menuName = "Scriptable Objects/Asset References")]
     public class AssetRefs : ScriptableObject, IAssetRefs

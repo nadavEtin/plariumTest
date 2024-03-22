@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Plarium.GameCore.ScriptableObjects
+namespace Plarium.Assets.GameCore.ScriptableObjects
 {
     public interface IAssetRefs
     {

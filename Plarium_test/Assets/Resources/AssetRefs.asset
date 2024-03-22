@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 269f96afa74e458586ce0a8c78cb5874, type: 3}
   m_Name: AssetRefs
   m_EditorClassIdentifier: 
+  _circle: {fileID: 2090537462177132109, guid: 19eac6c7cd868f84287e3c5b1eea1859, type: 3}
+  _triangle: {fileID: 2355351895830101971, guid: afb2b7bfc5a32744c8f11fb04f34f3e1, type: 3}
+  _square: {fileID: 5820067761614208375, guid: 671975bb3dcdf9e428beb95e28736c6e, type: 3}
